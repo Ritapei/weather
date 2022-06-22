@@ -5,22 +5,22 @@ on:
     branches:
       - 'main'
   schedule:
-    - cron: '0 09 * * *'
+    - cron: '0 19 * * *'
 
 jobs:
   docker:
     runs-on: windows-latest
     steps:
       - name: Set up QEMU
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
       - name: Set up Docker Buildx
-        uses: actions/setup-python@v3
-         run: |
-           echo '''${{ secrets.FIREBASE_KEY }}''' > serviceAccount.json
-           python -m pip install --upgrade pip
-           pip install -r requirements.txt
+      - uses: actions/setup-python@v3
+        run: |
+          echo '''${{ secrets.FIREBASE_KEY }}''' > serviceAccount.json
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: python main
-         run: |
-            python3 test.ipynb
+        run: |
+          python3 test.ipynb
            
          
