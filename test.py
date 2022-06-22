@@ -11,7 +11,6 @@ for i in area:
     url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-{}?Authorization=CWB-40C73C51-9AF7-4B8B-A5BE-8635FB67523F&format=JSON'.format(i)
     data = requests.get(url).json()
     information_list.append(data)
-
 cred = credentials.Certificate('serviceAccount.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
@@ -26,4 +25,4 @@ for y in information_list:
         except:
             print("新增失敗")
                 
-        break
+
