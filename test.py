@@ -12,7 +12,7 @@ for i in area:
     data = requests.get(url).json()
     information_list.append(data)
 
-cred = credentials.Certificate('./serviceAccount.json')
+cred = credentials.Certificate('serviceAccount.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
