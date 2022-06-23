@@ -10,7 +10,7 @@ on:
 jobs:
   my-job:
     name: weather001
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v3
