@@ -14,7 +14,8 @@ for i in area:
 cred = credentials.Certificate('serviceAccount.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-
+with open(information_list, 'r') as j:
+        contents = json.loads(j.read())
 for y in information_list:
     doc_ref = db.collection(str(datetime.date.today())).document(y["records"]["locations"][0]["locationsName"])
     doc_ref.set({"地區":y["records"]["locations"][0]["location"]})
@@ -25,4 +26,3 @@ for y in information_list:
         except:
             print("新增失敗")
                 
-
